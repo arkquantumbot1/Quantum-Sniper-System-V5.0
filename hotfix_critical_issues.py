@@ -68,9 +68,9 @@ config, name = temporary_fix()
 print("🔧 应用紧急补丁...")
 
 # 修复 performance_monitor_factory.py
-performance_file = './src/utilities/performance_monitor_factory.py'
+performance_file = "./src/utilities/performance_monitor_factory.py"
 if os.path.exists(performance_file):
-    with open(performance_file, 'w', encoding='utf-8') as f:
+    with open(performance_file, "w", encoding="utf-8") as f:
         f.write(performance_monitor_fix)
     print("✅ 修复 performance_monitor_factory.py")
 

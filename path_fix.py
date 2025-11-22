@@ -7,25 +7,28 @@
 import sys
 import os
 
+
 def setup_project_paths():
     """设置项目路径"""
-    
+
     # 获取项目根目录
     project_root = os.path.dirname(os.path.abspath(__file__))
-    
+
     # 添加项目根目录到Python路径
     if project_root not in sys.path:
         sys.path.insert(0, project_root)
-    
+
     # 添加src目录到Python路径
-    src_path = os.path.join(project_root, 'src')
+    src_path = os.path.join(project_root, "src")
     if src_path not in sys.path:
         sys.path.insert(0, src_path)
-    
+
     return True
+
 
 # 自动设置路径
 setup_project_paths()
+
 
 # 提供便捷的导入函数
 def safe_import(module_name, class_name=None):
@@ -37,13 +40,21 @@ def safe_import(module_name, class_name=None):
         else:
             return __import__(module_name)
     except ImportError as e:
-        print("导入失败: " + module_name + ("." + class_name if class_name else "") + " - " + str(e))
+        print(
+            "导入失败: "
+            + module_name
+            + ("." + class_name if class_name else "")
+            + " - "
+            + str(e)
+        )
         return None
+
 
 # 导出常用模块
 try:
     from src.interfaces import *
     from src.core.strategy_base import BaseStrategy, StrategySignal
+
     INTERFACES_AVAILABLE = True
 except ImportError as e:
     print("核心模块导入失败: " + str(e))

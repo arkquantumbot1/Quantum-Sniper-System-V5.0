@@ -10,7 +10,7 @@ import os
 # 设置路径
 project_root = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, project_root)
-sys.path.insert(0, os.path.join(project_root, 'src'))
+sys.path.insert(0, os.path.join(project_root, "src"))
 
 print("🧪 开始修复版导入测试...")
 
@@ -18,10 +18,10 @@ print("🧪 开始修复版导入测试...")
 modules_to_test = [
     ("interfaces", "src.interfaces"),
     ("量子神经晶格", "src.brain.quantum_neural_lattice"),
-    ("策略引擎", "src.brain.strategy_engine"), 
+    ("策略引擎", "src.brain.strategy_engine"),
     ("订单执行器", "src.engine.order_executor"),
     ("风控系统", "src.engine.risk_management"),
-    ("配置管理", "src.config.config")
+    ("配置管理", "src.config.config"),
 ]
 
 all_passed = True
@@ -40,31 +40,34 @@ init_ok = False
 
 try:
     from src.config.config import ConfigManager
-    
+
     # 正确初始化 ConfigManager
     config_manager = ConfigManager()
     if config_manager.initialize():
         print("  ✅ 配置管理器 - 初始化成功")
-        
+
         # 测试量子神经晶格策略
         from src.brain.quantum_neural_lattice import QuantumNeuralLatticeStrategy
+
         quantum_strategy = QuantumNeuralLatticeStrategy(config_manager)
         print("  ✅ 量子神经晶格策略 - 初始化成功")
-        
+
         # 测试策略引擎
         from src.brain.strategy_engine import StrategyEngine
+
         strategy_engine = StrategyEngine(config_manager)
         print("  ✅ 策略引擎 - 初始化成功")
-        
+
         # 测试订单执行器
         from src.engine.order_executor import OrderExecutor
+
         order_executor = OrderExecutor(config_manager)
         print("  ✅ 订单执行器 - 初始化成功")
-        
+
         init_ok = True
     else:
         print("  ❌ 配置管理器 - 初始化失败")
-    
+
 except Exception as e:
     print("  ❌ 初始化测试失败: " + str(e))
     init_ok = False

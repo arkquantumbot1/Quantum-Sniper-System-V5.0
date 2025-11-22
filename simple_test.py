@@ -10,7 +10,7 @@ import os
 # 设置路径
 project_root = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, project_root)
-sys.path.insert(0, os.path.join(project_root, 'src'))
+sys.path.insert(0, os.path.join(project_root, "src"))
 
 print("🧪 开始简化导入测试...")
 
@@ -18,10 +18,10 @@ print("🧪 开始简化导入测试...")
 modules_to_test = [
     ("interfaces", "src.interfaces"),
     ("量子神经晶格", "src.brain.quantum_neural_lattice"),
-    ("策略引擎", "src.brain.strategy_engine"), 
+    ("策略引擎", "src.brain.strategy_engine"),
     ("订单执行器", "src.engine.order_executor"),
     ("风控系统", "src.engine.risk_management"),
-    ("配置管理", "src.config.config")
+    ("配置管理", "src.config.config"),
 ]
 
 all_passed = True
@@ -38,23 +38,27 @@ print("\n🧪 开始初始化测试...")
 
 try:
     from src.config.config import ConfigManager
+
     config = ConfigManager()
     print("  ✅ 配置管理器 - 初始化成功")
-    
+
     from src.brain.quantum_neural_lattice import QuantumNeuralLatticeStrategy
+
     quantum_strategy = QuantumNeuralLatticeStrategy(config)
     print("  ✅ 量子神经晶格策略 - 初始化成功")
-    
+
     from src.brain.strategy_engine import StrategyEngine
+
     strategy_engine = StrategyEngine(config)
     print("  ✅ 策略引擎 - 初始化成功")
-    
+
     from src.engine.order_executor import OrderExecutor
+
     order_executor = OrderExecutor(config)
     print("  ✅ 订单执行器 - 初始化成功")
-    
+
     init_ok = True
-    
+
 except Exception as e:
     print("  ❌ 初始化测试失败: " + str(e))
     init_ok = False

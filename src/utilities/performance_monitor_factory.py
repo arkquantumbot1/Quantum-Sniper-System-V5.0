@@ -3,22 +3,22 @@ import sys
 from typing import Union, Optional
 
 # TODO: 需要正确定义这些导入
-# from .performance_monitor import PerformanceMonitor  
+# from .performance_monitor import PerformanceMonitor
 # from .quantum_sniper_performance_monitor_v5 import QuantumSniperPerformanceMonitorV5
+
 
 class PerformanceMonitorFactory:
     """性能监控器工厂"""
-    
+
     @staticmethod
     def create_performance_monitor(
-        environment: str = "production",
-        config: Optional[dict] = None
+        environment: str = "production", config: Optional[dict] = None
     ) -> Union[object, object]:  # TODO: 修复类型注解
         """创建性能监控器实例"""
         config = config or {}
-        
+
         # 环境检测逻辑
-        if environment == "colab" or 'google.colab' in str(sys.modules):
+        if environment == "colab" or "google.colab" in str(sys.modules):
             # 返回Colab优化版本
             try:
                 # from .quantum_sniper_performance_monitor_v5 import QuantumSniperPerformanceMonitorV5
@@ -34,7 +34,7 @@ class PerformanceMonitorFactory:
                 return object()  # 临时返回
             except ImportError:
                 pass
-        
+
         # 默认返回基础对象
         return object()
 
