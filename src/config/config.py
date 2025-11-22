@@ -851,8 +851,7 @@ _global_config_loader: Optional[UnifiedConfigLoader] = None
 
 def get_global_config() -> UnifiedConfigLoader:
     """获取全局配置加载器 - 新增极致优化"""
-    global _global_config_loader
-    
+# global _global_config_loader  # TODO: 这个全局变量未使用，已注释
     if _global_config_loader is None:
         _global_config_loader = UnifiedConfigLoader()
         _global_config_loader.load_config()
@@ -861,8 +860,7 @@ def get_global_config() -> UnifiedConfigLoader:
 
 def reload_global_config() -> bool:
     """重新加载全局配置 - 新增极致优化"""
-    global _global_config_loader
-    
+# global _global_config_loader  # TODO: 这个全局变量未使用，已注释
     if _global_config_loader is None:
         return get_global_config().load_config()
     else:

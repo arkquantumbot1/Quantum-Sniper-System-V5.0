@@ -186,9 +186,9 @@ class AdvancedOrderExecutor(UnifiedOrderExecutor):  # 🚀 更新：继承自Uni
     
     def __init__(self, config_path: str = None, scope = None, **kwargs):
         # 配置处理 - 极致优化
-        config = config or {}
+        config = config or {}  # TODO: 需要正确定义config变量  # TODO: 需要正确定义config变量  # TODO: 需要正确定义config变量  # TODO: 需要正确定义config变量
         default_config = {
-            "name": name,
+            "name": name,  # TODO: 需要正确定义name变量  # TODO: 需要正确定义name变量  # TODO: 需要正确定义name变量  # TODO: 需要正确定义name变量
             "execution_config": ExecutionConfig(),
             "quantum_integration": True,
             "multi_path_routing": True,

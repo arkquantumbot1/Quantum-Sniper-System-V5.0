@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 sys.path.insert(0, os.path.dirname(__file__))
 
 def test_imports():
-    \"\"\"测试所有关键模块导入\"\"\"
+    """测试所有关键模块导入"""
     
     print("🧪 开始导入测试...")
     
@@ -37,7 +37,7 @@ def test_imports():
     return all_passed
 
 def test_initialization():
-    \"\"\"测试模块初始化\"\"\"
+    """测试模块初始化"""
     
     print("\n🧪 开始初始化测试...")
     

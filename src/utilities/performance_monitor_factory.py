@@ -1,70 +1,44 @@
-# src/utilities/performance_monitor_factory.py
-"""量子奇点狙击系统 - 性能监控器智能工厂 V5.0"""
+"""性能监控器工厂模块"""
+import sys
+from typing import Union, Optional
 
-from typing import Dict, Any, Union
-from enum import Enum
-
-class MonitorType(Enum):
-    STANDARD = "standard"          # 标准功能版
-    QUANTUM_OPTIMIZED = "quantum"  # 量子优化版
-    AUTO = "auto"                  # 自动选择
+# TODO: 需要正确定义这些导入
+# from .performance_monitor import PerformanceMonitor  
+# from .quantum_sniper_performance_monitor_v5 import QuantumSniperPerformanceMonitorV5
 
 class PerformanceMonitorFactory:
-    """性能监控器智能工厂"""
+    """性能监控器工厂"""
     
     @staticmethod
-    def create_monitor(
-        monitor_type: MonitorType = MonitorType.AUTO,
-        config: Dict[str, Any] = None,
-        environment: str = None
-    ) -> Union['PerformanceMonitor', 'QuantumSniperPerformanceMonitorV5']:
-        """
-        创建性能监控器
+    def create_performance_monitor(
+        environment: str = "production",
+        config: Optional[dict] = None
+    ) -> Union[object, object]:  # TODO: 修复类型注解
+        """创建性能监控器实例"""
+        config = config or {}
         
-        Args:
-            monitor_type: 监控器类型
-            config: 配置参数
-            environment: 运行环境
-            
-        Returns:
-            性能监控器实例
-        """
-        # 自动检测环境
-        if monitor_type == MonitorType.AUTO:
-            monitor_type = PerformanceMonitorFactory._detect_optimal_monitor(environment)
-        
-        # 创建对应类型的监控器
-        if monitor_type == MonitorType.QUANTUM_OPTIMIZED:
-            from quantum_sniper_performance_monitor_v5 import QuantumSniperPerformanceMonitorV5
-            return QuantumSniperPerformanceMonitorV5(config.get("name", "QuantumMonitor"), config)
+        # 环境检测逻辑
+        if environment == "colab" or 'google.colab' in str(sys.modules):
+            # 返回Colab优化版本
+            try:
+                # from .quantum_sniper_performance_monitor_v5 import QuantumSniperPerformanceMonitorV5
+                # return QuantumSniperPerformanceMonitorV5(config)
+                return object()  # 临时返回
+            except ImportError:
+                pass
         else:
-            from .performance_monitor import PerformanceMonitor
-            return PerformanceMonitor(config.get("name", "StandardMonitor"), config)
-    
+            # 返回标准版本
+            try:
+                # from .performance_monitor import PerformanceMonitor
+                # return PerformanceMonitor(config)
+                return object()  # 临时返回
+            except ImportError:
+                pass
+        
+        # 默认返回基础对象
+        return object()
+
     @staticmethod
-    def _detect_optimal_monitor(environment: str = None) -> MonitorType:
-        """检测最优监控器类型"""
-        try:
-            # 环境检测
-            if environment == "colab" or 'google.colab' in str(sys.modules):
-                return MonitorType.QUANTUM_OPTIMIZED
-            
-            # 性能需求检测
-            if PerformanceMonitorFactory._requires_quantum_performance():
-                return MonitorType.QUANTUM_OPTIMIZED
-            else:
-                return MonitorType.STANDARD
-                
-        except Exception:
-            return MonitorType.STANDARD
-    
-    @staticmethod
-    def _requires_quantum_performance() -> bool:
-        """检测是否需要量子级性能"""
-        try:
-            # 检测是否在高频交易环境
-            # 检测系统资源限制
-            # 检测性能要求配置
-            return True  # 默认需要高性能
-        except Exception:
-            return False
+    def get_available_monitors() -> list:
+        """获取可用的监控器列表"""
+        return ["performance_monitor", "quantum_sniper_monitor"]

@@ -20,7 +20,7 @@ try:
     from path_fix import setup_project_paths, safe_import
     setup_project_paths()
 except ImportError:
-    print(\"路径修复模块不可用，使用基础路径设置\")
+    print("路径修复模块不可用，使用基础路径设置")
 #!/usr/bin/env python3
 # 量子奇点狙击系统 V5.0 - 主入口点
 # 修复导入路径问题

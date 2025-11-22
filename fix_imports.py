@@ -8,7 +8,7 @@ import sys
 import os
 
 def setup_import_paths():
-    \"\"\"设置正确的导入路径\"\"\"
+    """设置正确的导入路径"""
     
     # 添加src目录到Python路径
     src_path = os.path.join(os.path.dirname(__file__), 'src')
