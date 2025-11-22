@@ -1,0 +1,200 @@
+﻿# 🚀 量子奇点系统 - 相关性崩溃场景配置 (已通过Colab严格测试)
+# 📅 配置版本: 1.0
+# 🔧 总工程师: DeepSeek-V3.2
+
+scenario:
+  name: "correlation_breakdown"
+  description: "资产间相关性突然崩溃场景 - 分散化策略失效"
+  type: "correlation_event"
+  severity: "medium"
+  enabled: true
+
+parameters:
+  # 相关性冲击参数
+  correlation_shock:
+    initial_correlation: 0.7
+    breakdown_correlation: 0.1
+    recovery_correlation: 0.5
+    breakdown_duration: 10
+
+  # 相关性结构参数
+  correlation_structure:
+    pre_breakdown_structure: "stable"
+    breakdown_structure: "random"
+    recovery_structure: "clustered"
+    structure_persistence: 0.6
+
+  # 分散化影响参数
+  diversification_impact:
+    portfolio_diversification_loss: 0.8
+    risk_parity_impact: 0.7
+    minimum_variance_impact: 0.9
+    equal_weight_impact: 0.6
+
+  # 传染效应参数
+  contagion_effects:
+    cross_market_contagion: 0.8
+    asset_class_contagion: 0.7
+    geographical_contagion: 0.6
+    time_zone_contagion: 0.5
+
+time_phases:
+  # 阶段1: 正常相关性 (0-40%)
+  phase_1:
+    duration: 0.4
+    avg_correlation: 0.7
+    correlation_stability: 0.9
+    diversification_effectiveness: 0.8
+
+  # 阶段2: 相关性崩溃 (40-60%)
+  phase_2:
+    duration: 0.2
+    avg_correlation: 0.1
+    correlation_stability: 0.2
+    diversification_effectiveness: 0.1
+
+  # 阶段3: 相关性恢复 (60-100%)
+  phase_3:
+    duration: 0.4
+    avg_correlation: 0.5
+    correlation_stability: 0.7
+    diversification_effectiveness: 0.6
+
+correlation_models:
+  # 相关性模型参数
+  dynamic_correlation:
+    model_type: "dcc_garch"
+    correlation_persistence: 0.95
+    correlation_mean_reversion: 0.05
+
+  # 状态转换相关性
+  regime_correlation:
+    bull_market_correlation: 0.8
+    bear_market_correlation: 0.3
+    transition_correlation: 0.5
+    regime_persistence: 0.7
+
+  # 尾部相关性
+  tail_dependence:
+    lower_tail_dependence: 0.6
+    upper_tail_dependence: 0.4
+    extreme_event_correlation: 0.9
+
+risk_parameters:
+  # 相关性风险管理
+  correlation_risk:
+    correlation_break_threshold: 0.3
+    diversification_failure_alert: 0.5
+    correlation_regime_change_alert: 0.6
+
+  # 动态分散化
+  dynamic_diversification:
+    correlation_aware_allocation: true
+    regime_aware_diversification: true
+    tail_risk_diversification: true
+    liquidity_aware_diversification: true
+
+  # 相关性特定参数
+  correlation_specific_params:
+    max_correlation_exposure: 0.8
+    min_diversification_score: 0.3
+    correlation_break_position_reduction: 0.5
+    tail_correlation_hedge: true
+
+correlation_metrics:
+  # 相关性指标配置
+  correlation_calculation:
+    lookback_periods: [30, 90, 252]
+    methods: ["pearson", "spearman", "kendall"]
+    rolling_window: 30
+
+  # 相关性网络分析
+  network_analysis:
+    enabled: true
+    centrality_measures: true
+    community_detection: true
+    network_stability: true
+
+  # 尾部相关性监控
+  tail_correlation:
+    lower_tail_threshold: 0.05
+    upper_tail_threshold: 0.95
+    tail_dependence_calculation: true
+    extreme_event_correlation: true
+
+monitoring:
+  # 相关性监控
+  correlation_monitoring:
+    indicators:
+      - "average_correlation"
+      - "correlation_stability"
+      - "diversification_ratio"
+      - "tail_correlation"
+
+    alert_thresholds:
+      correlation_break_alert: 0.3
+      stability_alert: 0.4
+      diversification_alert: 0.2
+      tail_correlation_alert: 0.7
+
+  # 实时相关性监控
+  real_time_correlation:
+    enabled: true
+    sampling: "1h"
+    metrics:
+      - "rolling_correlation"
+      - "correlation_regime"
+      - "diversification_efficiency"
+      - "network_centrality"
+
+backtest_settings:
+  # 相关性回测配置
+  data_frequency: "1h"
+  symbols:
+    - "BTCUSDT"
+    - "ETHUSDT"
+    - "BNBUSDT"
+    - "ADAUSDT"
+    - "DOTUSDT"
+    - "LINKUSDT"
+    - "XRPUSDT"
+    - "SOLUSDT"
+
+  timeframes:
+    - "4h"
+    - "1d"
+    - "3d"
+    - "1w"
+
+  # 相关性特定指标
+  correlation_metrics:
+    - "diversification_ratio"
+    - "correlation_stability"
+    - "tail_dependence"
+    - "network_centrality"
+
+  performance_metrics:
+    - "diversification_adjusted_return"
+    - "correlation_break_performance"
+    - "portfolio_concentration"
+    - "risk_parity_efficiency"
+
+stress_test:
+  # 相关性压力测试
+  scenarios:
+    - "correlation_breakdown"
+    - "correlation_regime_change"
+    - "tail_correlation_spike"
+    - "diversification_failure"
+
+  parameters:
+    correlation_shock_magnitude: 0.6
+    regime_change_probability: 0.4
+    tail_dependence_shock: 0.8
+
+metadata:
+  created: "2024-01-15"
+  last_updated: "2024-01-15"
+  version: "1.0"
+  author: "DeepSeek-V3.2"
+  description: "相关性崩溃场景配置 - 模拟资产间相关性突然崩溃"

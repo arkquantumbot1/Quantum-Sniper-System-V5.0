@@ -1,0 +1,68 @@
+# config/strategies.yaml  (项目根目录下的config目录)
+version: '5.0.0'
+metadata:
+  created_at: '2025-01-16T10:00:00'
+  author: 'Quantum-Sniper-Team'
+  description: '量子奇点狙击系统V5.0策略配置'
+
+strategies:
+  quantum_neural_lattice:
+    name: 'Quantum Neural Lattice Strategy'
+    type: 'quantum_neural_lattice'
+    enabled: true
+    risk_level: 'moderate'
+    
+    performance_targets:
+      sharpe_ratio: 3.0
+      max_drawdown: 0.08
+      annual_return: 0.80
+      win_rate: 0.85
+      calmar_ratio: 6.0
+      profit_factor: 2.5
+      recovery_factor: 4.0
+    
+    quantum_config:
+      quantum_entanglement: 0.7
+      quantum_coherence_target: 0.95
+      lattice_dimensions: ['time', 'price', 'volume', 'volatility']
+      uncertainty_threshold: 0.2
+      use_fast_mode: true
+      uncertainty_samples: 10
+      enable_gpu_acceleration: true
+      batch_inference_size: 32
+      input_dim: 64
+      hidden_dims: [128, 256, 128, 64]
+      output_dim: 4
+      version_management:
+        auto_select: true
+        default_environment: 'production'
+        environment_overrides:
+          production: 'v5_0_original'
+          staging: 'v5_0_original'
+          testing: 'v5_0_optimized'
+          development: 'v5_0_optimized'
+          benchmark: 'v5_0_optimized'
+    
+    risk_config:
+      max_position_size: 0.1
+      max_daily_loss: 0.02
+      max_portfolio_risk: 0.15
+      var_confidence: 0.95
+      stress_test_scenarios: ['black_swan_2020', 'luna_crash_2022', 'flash_crash']
+      correlation_breakdown_threshold: 0.3
+      enable_ai_risk_prediction: true
+      risk_prediction_horizon: 24
+      anomaly_detection_sensitivity: 0.8
+    
+    execution_config:
+      max_slippage: 0.001
+      max_execution_delay: 20
+      smart_order_routing: true
+      commission_rate: 0.001
+      spread_threshold: 0.0005
+      liquidity_requirement: 10000.0
+      enable_fpga_acceleration: true
+      hardware_latency_target: 5
+    
+    adaptive_parameters: {}
+    market_regime_settings: {}

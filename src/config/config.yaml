@@ -1,0 +1,321 @@
+﻿# src/config/config.yaml
+# 量子奇点狙击系统 V5.0 - 完整配置
+quantum_sniper:
+  version: "5.0"
+  environment: "development"  # development, testing, production
+  
+  # 策略引擎配置
+  strategy_engine:
+    name: "QuantumStrategyEngine"
+    execution_mode: "realtime"  # realtime, backtest, paper_trading
+    max_concurrent_strategies: 10
+    enable_advanced_features: true
+    event_driven_architecture: true
+    auto_recovery: true
+    health_check_interval: 30
+    
+    # 性能优化配置
+    performance:
+      signal_batch_size: 100
+      max_signal_cache: 1000
+      cache_ttl_seconds: 300
+      enable_async_processing: true
+      
+    # 高级功能配置（条件启用）
+    advanced:
+      quantum_neural_lattice:
+        enabled: false
+        model_path: "./models/quantum_neural_lattice.pth"
+        inference_batch_size: 32
+        
+      sac_optimizer:
+        enabled: false  
+        learning_rate: 0.001
+        update_frequency: 1000
+        
+  # 策略配置
+  strategies:
+    emergency_base:
+      enabled: true
+      weight: 0.3
+      parameters:
+        base_confidence: 0.5
+        signal_strength: 1.0
+        
+    trend_following:
+      enabled: true
+      weight: 0.4
+      parameters:
+        lookback_period: 20
+        trend_threshold: 0.02
+        volatility_adjustment: true
+        
+    mean_reversion:
+      enabled: true  
+      weight: 0.3
+      parameters:
+        mean_period: 50
+        std_dev_threshold: 2.0
+        reversal_strength: 0.8
+        
+  # 风险管理配置
+  risk_management:
+    max_drawdown: 0.15  # 开发环境更宽松
+    max_position_size: 0.2  # 开发环境更宽松
+    daily_loss_limit: 0.02
+    
+    # 动态杠杆配置
+    dynamic_leverage:
+      enabled: true
+      base_leverage: 3.0
+      volatility_multiplier: 0.5
+      max_leverage: 10.0
+      
+    # 止损配置
+    stop_loss:
+      enabled: true
+      trailing_stop: true
+      stop_percentage: 0.03  # 3%
+      activation_threshold: 0.05  # 5%
+      
+    # 传统风险配置（向后兼容）
+    legacy_risk:
+      max_position_size: 0.1
+      max_drawdown: 0.1
+      stop_loss: 0.02
+      take_profit: 0.04
+      
+  # 订单执行器配置
+  order_executor:
+    execution_mode: "real_time"
+    enabled_exchanges: ["binance", "bybit", "bingx", "bitget", "mexc"]
+    default_exchange: "binance"
+    fpga_enabled: false
+    
+    # 交易所特定配置
+    exchanges:
+      binance:
+        enabled: true
+        api_timeout: 30
+        rate_limit_per_second: 10
+        api_key: "${BINANCE_API_KEY}"
+        secret_key: "${BINANCE_SECRET_KEY}"
+        
+      bybit:
+        enabled: true
+        api_timeout: 30
+        rate_limit_per_second: 15
+        api_key: "${BYBIT_API_KEY}"
+        secret_key: "${BYBIT_SECRET_KEY}"
+        
+      bingx:
+        enabled: true
+        api_timeout: 30
+        rate_limit_per_second: 10
+        api_key: "${BINGX_API_KEY}"
+        secret_key: "${BINGX_SECRET_KEY}"
+        demo: false
+        
+      bitget:
+        enabled: true  
+        api_timeout: 30
+        rate_limit_per_second: 10
+        api_key: "${BITGET_API_KEY}"
+        secret_key: "${BITGET_SECRET_KEY}"
+        passphrase: "${BITGET_PASSPHRASE}"
+        
+      mexc:
+        enabled: true
+        api_timeout: 30
+        rate_limit_per_second: 10
+        api_key: "${MEXC_API_KEY}"
+        secret_key: "${MEXC_SECRET_KEY}"
+        
+      ftx:
+        enabled: false
+        api_timeout: 30
+        rate_limit_per_second: 20
+        
+  # 执行引擎配置（向后兼容）
+  execution:
+    default_exchange: "binance"
+    enable_smart_routing: true
+    max_slippage: 0.001  # 0.1%
+    
+    # 交易所特定配置（向后兼容）
+    exchanges:
+      binance:
+        enabled: true
+        api_timeout: 30
+        rate_limit_per_second: 10
+        
+      bybit:
+        enabled: true
+        api_timeout: 30
+        rate_limit_per_second: 15
+        
+      bingx:
+        enabled: true
+        api_timeout: 30
+        rate_limit_per_second: 10
+        
+      bitget:
+        enabled: true
+        api_timeout: 30
+        rate_limit_per_second: 10
+        
+      mexc:
+        enabled: true
+        api_timeout: 30
+        rate_limit_per_second: 10
+        
+      ftx:
+        enabled: false
+        api_timeout: 30
+        rate_limit_per_second: 20
+        
+  # 监控和日志配置
+  monitoring:
+    log_level: "DEBUG"  # 开发环境详细日志
+    enable_metrics: true
+    metrics_port: 9090
+    enable_health_checks: true
+    log_file: "quantum_sniper.log"
+    
+    # 监控功能配置
+    features:
+      enabled: true
+      telegram_alerts: false
+      performance_tracking: true
+    
+    # 告警配置
+    alerts:
+      telegram:
+        enabled: false
+        bot_token: "${TELEGRAM_BOT_TOKEN}"
+        chat_id: "${TELEGRAM_CHAT_ID}"
+        
+      email:
+        enabled: false
+        smtp_server: "smtp.gmail.com"
+        smtp_port: 587
+        
+  # 数据源配置
+  data_sources:
+    market_data:
+      primary: "binance"
+      fallback: "coinbase"
+      cache_enabled: true
+      cache_ttl_minutes: 5
+      
+      # 支持的交易所数据源
+      supported_exchanges: ["binance", "bybit", "bingx", "bitget", "mexc"]
+      
+      # 交易对配置
+      symbols:
+        - "BTCUSDT"
+        - "ETHUSDT" 
+        - "ADAUSDT"
+        
+      # 时间框架配置
+      timeframes:
+        - "15m"
+        - "1h"
+        - "4h"
+      
+    historical_data:
+      enabled: true
+      storage: "local"  # local, database, cloud
+      update_frequency: "1h"
+      
+  # 数据库配置
+  database:
+    type: "sqlite"
+    path: "sniper.db"
+    
+  # 测试配置
+  testing:
+    integration:
+      enable_mock_mode: true
+      test_capital: 10000
+      max_test_duration: 300
+      
+    strategy:
+      backtest_period: "90d"
+      initial_capital: 10000
+      commission: 0.001
+      slippage: 0.0005
+      
+    risk:
+      initial_capital: 100000
+      max_position_size: 0.15
+      max_drawdown: 0.05
+      daily_loss_limit: 0.02
+      
+  # 性能调优配置
+  performance_tuning:
+    signal_processing:
+      batch_size: 100
+      parallel_workers: 4
+      cache_enabled: true
+      
+    memory_management:
+      max_cache_size: "1GB"
+      cleanup_interval: 300
+      
+    gpu_optimization:
+      enabled: false
+      device: "cuda:0"
+      memory_fraction: 0.8
+      
+  # 多层风险控制
+  layered_risk_control:
+    portfolio:
+      max_total_exposure: 1.0
+      correlation_threshold: 0.7
+      
+    position_sizing:
+      kelly_fraction: 0.25
+      min_position_size: 0.01
+      max_position_size: 0.1
+      
+    circuit_breakers:
+      enabled: true
+      max_daily_loss: 0.05
+      volatility_alert: 0.15
+
+# 向后兼容的传统配置（逐步淘汰）
+trading:
+  symbols:
+    - "BTCUSDT"
+    - "ETHUSDT"
+    - "ADAUSDT"
+  exchanges:
+    - "binance"
+    - "bybit"
+    - "bingx"
+    - "bitget"
+    - "mexc"
+  timeframes:
+    - "15m"
+    - "1h"
+    - "4h"
+
+risk:
+  max_position_size: 0.1
+  max_drawdown: 0.1
+  stop_loss: 0.02
+  take_profit: 0.04
+
+monitoring:
+  enabled: true
+  telegram_alerts: false
+  performance_tracking: true
+
+database:
+  type: "sqlite"
+  path: "sniper.db"
+
+logging:
+  level: "INFO"
+  file: "quantum_sniper.log"

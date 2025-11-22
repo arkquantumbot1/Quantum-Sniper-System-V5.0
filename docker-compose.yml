@@ -1,0 +1,7 @@
+
+version: '3.8'
+services:
+  quantum-sniper:
+    image: quantum-sniper:4.2
+    ports:
+      - "8000:8000"

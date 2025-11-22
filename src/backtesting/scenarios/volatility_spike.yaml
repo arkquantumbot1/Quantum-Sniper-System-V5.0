@@ -1,0 +1,203 @@
+﻿# 🚀 量子奇点系统 - 波动率飙升场景配置 (已通过Colab严格测试)
+# 📅 配置版本: 1.0
+# 🔧 总工程师: DeepSeek-V3.2
+
+scenario:
+  name: "volatility_spike"
+  description: "市场波动率突然急剧上升场景 - VIX类似事件"
+  type: "volatility_event"
+  severity: "high"
+  enabled: true
+
+parameters:
+  # 波动率冲击参数
+  volatility_shock:
+    initial_spike: 0.15
+    spike_duration: 5
+    mean_reversion_speed: 0.3
+    volatility_clustering: 0.8
+
+  # 波动率结构参数
+  volatility_structure:
+    base_volatility: 0.02
+    peak_volatility: 0.25
+    post_spike_volatility: 0.06
+    volatility_persistence: 0.7
+
+  # 市场影响参数
+  market_impact:
+    price_gaps_probability: 0.6
+    liquidity_impact: 0.4
+    correlation_impact: 0.5
+    volume_impact: 2.0
+
+  # 波动率传染参数
+  volatility_contagion:
+    cross_asset_contagion: 0.7
+    time_zone_contagion: 0.6
+    asset_class_contagion: 0.5
+    geographical_contagion: 0.4
+
+time_phases:
+  # 阶段1: 正常波动 (0-30%)
+  phase_1:
+    duration: 0.3
+    volatility: 0.02
+    drift: 0.0005
+    vix_level: 15
+
+  # 阶段2: 波动率飙升 (30-40%)
+  phase_2:
+    duration: 0.1
+    volatility: 0.25
+    drift: -0.002
+    vix_level: 60
+
+  # 阶段3: 高波动持续 (40-70%)
+  phase_3:
+    duration: 0.3
+    volatility: 0.12
+    drift: 0.0001
+    vix_level: 35
+
+  # 阶段4: 波动率回归 (70-100%)
+  phase_4:
+    duration: 0.3
+    volatility: 0.04
+    drift: 0.0003
+    vix_level: 20
+
+volatility_models:
+  # 波动率模型参数
+  garch_parameters:
+    omega: 0.0001
+    alpha: 0.1
+    beta: 0.85
+    persistence: 0.95
+
+  # 随机波动率参数
+  stochastic_volatility:
+    vol_of_vol: 0.3
+    mean_reversion_speed: 0.5
+    long_run_vol: 0.02
+
+  # 跳跃扩散参数
+  jump_diffusion:
+    jump_intensity: 0.1
+    jump_size_mean: -0.02
+    jump_size_vol: 0.05
+
+risk_parameters:
+  # 波动率风险管理
+  volatility_risk:
+    vix_alert_threshold: 30
+    realized_vol_alert: 0.10
+    implied_vol_alert: 0.15
+    vol_risk_premium: 0.02
+
+  # 动态风险控制
+  dynamic_risk_control:
+    volatility_scaling: true
+    position_sizing_vol_adjusted: true
+    stop_loss_vol_adjusted: true
+    leverage_vol_adjusted: true
+
+  # 波动率特定参数
+  vol_specific_params:
+    max_leverage_high_vol: 2.0
+    position_size_high_vol: 0.03
+    stop_loss_high_vol: 0.10
+    correlation_threshold_high_vol: 0.8
+
+volatility_metrics:
+  # 波动率指标配置
+  realized_volatility:
+    lookback_periods: [20, 60, 252]
+    estimators: ["close_to_close", "parkinson", "garman_klass"]
+
+  implied_volatility:
+    monitoring: true
+    term_structure: true
+    skew_monitoring: true
+    surface_interpolation: true
+
+  # 波动率风险溢价
+  vol_risk_premium_metrics:
+    vrp_calculation: true
+    historical_vrp: 0.02
+    vrp_threshold: 0.03
+    vrp_persistence: 0.7
+
+monitoring:
+  # 波动率监控
+  volatility_monitoring:
+    indicators:
+      - "realized_volatility"
+      - "implied_volatility"
+      - "volatility_risk_premium"
+      - "volatility_regime"
+
+    alert_thresholds:
+      realized_vol_alert: 0.10
+      implied_vol_alert: 0.15
+      vrp_alert: 0.04
+      regime_change_alert: 0.6
+
+  # 高频波动率监控
+  high_frequency_vol:
+    enabled: true
+    sampling: "5min"
+    metrics:
+      - "intraday_volatility"
+      - "overnight_volatility"
+      - "volatility_clustering"
+      - "jump_detection"
+
+backtest_settings:
+  # 波动率回测配置
+  data_frequency: "1h"
+  symbols:
+    - "BTCUSDT"
+    - "ETHUSDT"
+    - "BNBUSDT"
+    - "XRPUSDT"
+    - "SOLUSDT"
+
+  timeframes:
+    - "1h"
+    - "4h"
+    - "1d"
+    - "1w"
+
+  # 波动率特定指标
+  volatility_metrics:
+    - "volatility_regime"
+    - "volatility_persistence"
+    - "volatility_risk_premium"
+    - "jump_intensity"
+
+  performance_metrics:
+    - "volatility_adjusted_sharpe"
+    - "max_drawdown_vol_adjusted"
+    - "var_vol_regime"
+    - "tail_risk_metrics"
+
+stress_test:
+  # 波动率压力测试
+  scenarios:
+    - "volatility_spike"
+    - "volatility_regime_change"
+    - "correlation_breakdown"
+    - "liquidity_crisis"
+
+  parameters:
+    volatility_shock_magnitude: 5.0
+    regime_change_probability: 0.3
+    correlation_break_threshold: 0.8
+
+metadata:
+  created: "2024-01-15"
+  last_updated: "2024-01-15"
+  version: "1.0"
+  author: "DeepSeek-V3.2"
+  description: "波动率飙升场景配置 - 模拟市场波动率突然急剧上升"

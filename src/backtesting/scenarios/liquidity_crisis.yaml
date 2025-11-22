@@ -1,0 +1,193 @@
+﻿# 🚀 量子奇点系统 - 流动性危机场景配置 (已通过Colab严格测试)
+# 📅 配置版本: 1.0
+# 🔧 总工程师: DeepSeek-V3.2
+
+scenario:
+  name: "liquidity_crisis"
+  description: "市场流动性突然枯竭场景 - 闪电崩盘和流动性蒸发"
+  type: "liquidity_crisis"
+  severity: "high"
+  enabled: true
+
+parameters:
+  # 基础参数
+  volatility_multiplier: 8.0
+  liquidity_shock: 0.95
+  correlation_breakdown: 0.7
+  crash_duration: 0.05
+  recovery_speed: 0.8
+  max_drawdown: 0.4
+
+  # 流动性冲击参数
+  liquidity_impact:
+    bid_ask_spread_surge: 0.25
+    market_depth_collapse: 0.99
+    volume_evaporation: 0.95
+    execution_slippage: 0.15
+
+  # 闪电崩盘参数
+  flash_crash:
+    crash_intensity: 0.4
+    recovery_elasticity: 0.7
+    high_frequency_impact: 0.8
+    market_maker_withdrawal: 0.9
+
+  # 微观结构参数
+  microstructure:
+    order_imbalance_extreme: 0.9
+    price_gap_risk: 0.95
+    execution_uncertainty: 0.9
+    market_microstructure_breakdown: 0.85
+
+time_phases:
+  # 阶段1: 正常市场 (0-30%)
+  phase_1:
+    duration: 0.3
+    volatility: 0.01
+    drift: 0.0001
+    liquidity: 1.0
+    bid_ask_spread: 0.001
+
+  # 阶段2: 崩盘阶段 (30-35%)
+  phase_2:
+    duration: 0.05
+    volatility: 0.2
+    drift: -0.1
+    liquidity: 0.05
+    bid_ask_spread: 0.25
+
+  # 阶段3: 恢复阶段 (35-100%)
+  phase_3:
+    duration: 0.65
+    volatility: 0.03
+    drift: 0.02
+    liquidity: 0.3
+    bid_ask_spread: 0.01
+
+liquidity_metrics:
+  # 流动性指标
+  bid_ask_spread_threshold: 0.02
+  market_depth_threshold: 0.1
+  volume_threshold: 0.2
+  slippage_threshold: 0.05
+
+  # 做市商行为
+  market_maker_behavior:
+    inventory_risk_aversion: 0.9
+    quote_width_increase: 0.5
+    execution_speed_reduction: 0.8
+    risk_exposure_limit: 0.3
+
+risk_parameters:
+  # 极端风险管理
+  max_leverage: 2.0
+  position_size_limit: 0.03
+  stop_loss_trigger: 0.08
+  circuit_breaker: true
+  liquidity_monitoring: true
+  execution_speed_limit: 0.1
+
+  # 流动性风险管理
+  liquidity_requirements:
+    minimum_liquidity_score: 0.5
+    maximum_slippage: 0.02
+    execution_confidence: 0.8
+    market_depth_requirement: 0.3
+
+  # 紧急应对措施
+  emergency_measures:
+    auto_position_reduction: true
+    leverage_reduction_threshold: 0.6
+    stop_hunting_protection: true
+    liquidity_provision_trigger: 0.7
+
+flash_crash_metrics:
+  # 闪电崩盘特有指标
+  price_discovery_breakdown: 0.9
+  liquidity_evaporation_speed: 0.95
+  high_frequency_impact: 0.8
+  recovery_elasticity: 0.7
+  market_maker_withdrawal: 0.9
+
+  # 价格异常检测
+  price_anomalies:
+    gap_detection_threshold: 0.05
+    volatility_regime_change: 0.8
+    volume_spike_detection: 3.0
+    correlation_break_detection: 0.9
+
+monitoring:
+  # 实时监控配置
+  indicators:
+    - "bid_ask_spread"
+    - "market_depth"
+    - "volume_velocity"
+    - "slippage"
+    - "order_imbalance"
+
+  alert_thresholds:
+    spread_alert: 0.01
+    depth_alert: 0.2
+    volume_alert: 0.1
+    slippage_alert: 0.03
+    imbalance_alert: 0.8
+
+  # 高频监控
+  high_frequency_monitoring:
+    enabled: true
+    sampling_rate: "1s"
+    metrics:
+      - "micro_price_movement"
+      - "order_flow_imbalance"
+      - "liquidity_clustering"
+      - "trade_signature"
+
+backtest_settings:
+  # 高频回测配置
+  data_frequency: "1min"
+  symbols:
+    - "BTCUSDT"
+    - "ETHUSDT"
+    - "BNBUSDT"
+    - "XRPUSDT"
+    - "SOLUSDT"
+
+  timeframes:
+    - "1m"
+    - "5m"
+    - "15m"
+    - "1h"
+
+  # 流动性特定指标
+  liquidity_metrics:
+    - "amihud_illiquidity"
+    - "roll_spread"
+    - "corwin_schultz"
+    - "kyle_lambda"
+
+  performance_metrics:
+    - "liquidity_adjusted_sharpe"
+    - "slippage_cost"
+    - "execution_quality"
+    - "liquidity_premium"
+
+stress_test:
+  # 流动性压力测试
+  scenarios:
+    - "flash_crash"
+    - "market_maker_exit"
+    - "regulatory_change"
+    - "counterparty_risk"
+
+  parameters:
+    liquidity_withdrawal: 0.8
+    correlation_breakdown: 0.9
+    volatility_shock: 5.0
+    funding_rate_spike: 0.1
+
+metadata:
+  created: "2024-01-15"
+  last_updated: "2024-01-15"
+  version: "1.0"
+  author: "DeepSeek-V3.2"
+  description: "流动性危机场景配置 - 模拟市场流动性突然枯竭"

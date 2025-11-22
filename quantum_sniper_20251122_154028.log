@@ -1,0 +1,95 @@
+2025-11-22 15:40:28,320 - strategy.factory - INFO - 自动选择版本: v5_0_optimized (环境: development)
+2025-11-22 15:40:28,320 - strategy.quantum_lattice_optimized - INFO - 开始初始化优化版量子神经晶格策略...
+2025-11-22 15:40:28,500 - strategy.quantum_lattice_optimized - INFO - 优化版量子神经晶格策略初始化完成
+2025-11-22 15:40:28,500 - strategy.factory - INFO - 成功创建策略: 性能优化版本 - 测试环境使用
+2025-11-22 15:40:28,500 - quantum_sniper.system - INFO - ✅ 量子策略创建成功: QuantumNeuralLatticeOptimized
+2025-11-22 15:40:28,500 - quantum_sniper.system - INFO - 🚀 量子奇点狙击系统 V5.0 实例创建: quantum_sniper_6eccfd2c
+2025-11-22 15:40:28,500 - quantum_sniper.system - INFO - 系统状态变更: bootstrapping -> initializing
+2025-11-22 15:40:28,500 - quantum_sniper.system - INFO - 🎯 开始初始化量子奇点狙击系统 V5.0...
+2025-11-22 15:40:28,500 - quantum_sniper.system - INFO - 正在执行: 接口验证
+2025-11-22 15:40:28,500 - quantum_sniper.system - WARNING - 接口验证发现问题: ["接口 IStrategySignal 有未实现的抽象方法: ['generate_async', 'get_confidence', 'get_performance_metrics', 'get_signal_direction', 'get_signal_metadata', 'get_signal_strength', 'get_timestamp', 'is_expired', 'validate_signal_integrity']", "接口 IDataProcessor 有未实现的抽象方法: ['detect_anomalies', 'extract_features', 'get_data_quality_metrics', 'get_processing_metrics', 'optimize_pipeline', 'process_data', 'process_data_async', 'validate_data_quality']", "接口 IEventDispatcher 有未实现的抽象方法: ['dispatch_event', 'dispatch_event_async', 'get_event_metrics', 'get_pending_events_count', 'optimize_event_flow', 'register_conditional_handler', 'register_handler', 'remove_handler', 'set_event_priority']", "接口 IConfigManager 有未实现的抽象方法: ['get_config', 'get_config_by_scope', 'get_config_history', 'get_config_schema', 'hot_reload_config', 'load_config', 'optimize_config_storage', 'rollback_config', 'set_config', 'validate_config', 'watch_config']", "接口 IMarketAnalyzer 有未实现的抽象方法: ['analyze_market_async', 'analyze_market_condition', 'detect_regime', 'get_analysis_confidence', 'get_market_insights', 'optimize_analysis_model', 'predict_regime_shift']", "接口 IRiskManager 有未实现的抽象方法: ['adjust_risk_parameters', 'assess_risk_async', 'calculate_position_size', 'get_risk_exposure', 'get_risk_metrics', 'simulate_stress_test', 'validate_trade_signal']"]
+2025-11-22 15:40:28,516 - quantum_sniper.system - INFO - ✅ 接口验证 完成
+2025-11-22 15:40:28,516 - quantum_sniper.system - INFO - 正在执行: 配置系统
+2025-11-22 15:40:28,516 - config.loader - INFO - 自动发现配置文件: C:\Users\User\TradingProjects\Quantum-Sniper-System\Quantum-Sniper-System-V5.0\config.yaml
+2025-11-22 15:40:28,516 - config.loader - INFO - 自动发现配置文件: C:\Users\User\TradingProjects\Quantum-Sniper-System\Quantum-Sniper-System-V5.0\.env
+2025-11-22 15:40:28,516 - config.loader - INFO - 自动发现配置文件: C:\Users\User\TradingProjects\Quantum-Sniper-System\Quantum-Sniper-System-V5.0\.env.example
+2025-11-22 15:40:28,516 - config.loader - INFO - 自动发现配置文件: C:\Users\User\TradingProjects\Quantum-Sniper-System\Quantum-Sniper-System-V5.0\src\config\config.yaml
+2025-11-22 15:40:28,532 - config.loader - INFO - 开始加载配置，环境: development
+2025-11-22 15:40:28,653 - config.loader - INFO - 配置加载完成: 4 个文件, 耗时: 0.122s
+2025-11-22 15:40:28,653 - quantum_sniper.system - INFO - ✅ 配置系统初始化完成
+2025-11-22 15:40:28,653 - quantum_sniper.system - INFO - ✅ 配置系统 完成
+2025-11-22 15:40:28,653 - quantum_sniper.system - INFO - 正在执行: 加载配置
+2025-11-22 15:40:28,653 - quantum_sniper.system - INFO - 系统配置应用: 环境=development, 高级功能=False
+2025-11-22 15:40:28,653 - quantum_sniper.system - ERROR - 策略引擎未初始化
+2025-11-22 15:40:28,653 - quantum_sniper.system - WARNING - 组件配置失败: strategy_engine
+2025-11-22 15:40:28,653 - quantum_sniper.system - WARNING - 整合引擎未初始化，跳过配置
+2025-11-22 15:40:28,653 - performance.quantum_sniper_monitor - INFO - 开始初始化AI驱动性能监控器...
+2025-11-22 15:40:28,669 - performance.quantum_sniper_monitor - INFO - 实时监控启动完成
+2025-11-22 15:40:28,669 - performance.quantum_sniper_monitor - INFO - AI性能预测组件初始化完成
+2025-11-22 15:40:28,669 - performance.quantum_sniper_monitor - INFO - 性能监控器初始化完成: AI预测=True, 耗时: 0.016s
+2025-11-22 15:40:28,669 - quantum_sniper.system - INFO - 性能监控器初始化完成
+2025-11-22 15:40:28,669 - quantum_sniper.system - INFO - 性能监控配置: 启用=True
+2025-11-22 15:40:28,669 - risk.quantum_risk_manager - INFO - 开始初始化AI驱动风险管理系统...
+2025-11-22 15:40:28,669 - strategy.SACRiskOptimizer - INFO - 初始化分布式进化SAC策略优化器...
+2025-11-22 15:40:30,687 - performance.quantum_sniper_monitor - WARNING - 性能告警触发: 组件 system CPU使用率过高 (严重程度: medium, 当前值: 83.9, 阈值: 70.0, 来源: performance_monitor)
+2025-11-22 15:40:33,554 - strategy.SACRiskOptimizer - INFO - SAC模型初始化完成
+2025-11-22 15:40:33,554 - evolutionary_optimizer - INFO - 进化种群初始化完成: 50 个体
+2025-11-22 15:40:33,554 - strategy.SACRiskOptimizer - INFO - 进化优化器初始化完成
+2025-11-22 15:40:33,554 - strategy.SACRiskOptimizer - INFO - 单机训练模式
+2025-11-22 15:40:33,554 - strategy.SACRiskOptimizer - INFO - SAC策略优化器初始化完成
+2025-11-22 15:40:33,554 - risk.quantum_risk_manager - INFO - SAC风险优化器初始化成功
+2025-11-22 15:40:33,554 - engine.order_executor - INFO - 初始化订单执行引擎...
+2025-11-22 15:40:33,554 - engine.order_executor - INFO - 开始加载订单执行器配置...
+2025-11-22 15:40:33,554 - engine.order_executor - ERROR - 基础配置加载失败
+2025-11-22 15:40:33,554 - engine.order_executor - INFO - 订单执行引擎初始化完成
+2025-11-22 15:40:33,554 - engine.order_executor - INFO - 开始加载订单执行器配置...
+2025-11-22 15:40:33,554 - engine.order_executor - ERROR - 基础配置加载失败
+2025-11-22 15:40:33,554 - risk.quantum_risk_manager - INFO - 全局订单执行器加载成功: UnifiedOrderExecutor
+2025-11-22 15:40:33,554 - risk.quantum_risk_manager - INFO - 订单执行器状态: real_time
+2025-11-22 15:40:33,554 - risk.quantum_risk_manager - INFO - 紧急平仓系统初始化完成
+2025-11-22 15:40:33,554 - risk.quantum_risk_manager - INFO - 风险管理系统初始化完成: AI预测=True, 多层风控=True, 紧急平仓=True, 耗时: 4.885s
+2025-11-22 15:40:33,554 - quantum_sniper.system - INFO - 风险管理系统初始化完成
+2025-11-22 15:40:33,554 - quantum_sniper.system - INFO - 风险管理系统配置: 启用=True
+2025-11-22 15:40:33,554 - quantum_sniper.system - ERROR - 订单执行器配置异常: _initialize_order_executor() takes 1 positional argument but 2 were given
+2025-11-22 15:40:33,554 - quantum_sniper.system - WARNING - 组件配置失败: order_executor
+2025-11-22 15:40:33,554 - quantum_sniper.system - INFO - 交易配置: 启用=True, 交易对=['BTCUSDT', 'ETHUSDT', 'ADAUSDT']
+2025-11-22 15:40:33,554 - quantum_sniper.system - INFO - ✅ 系统配置加载完成
+2025-11-22 15:40:33,554 - quantum_sniper.system - INFO - ✅ 加载配置 完成
+2025-11-22 15:40:33,554 - quantum_sniper.system - INFO - 正在执行: 风险管理系统
+2025-11-22 15:40:33,554 - quantum_sniper.system - INFO - 初始化AI驱动风险管理系统...
+2025-11-22 15:40:33,554 - risk.quantum_risk_manager - INFO - 开始初始化AI驱动风险管理系统...
+2025-11-22 15:40:33,554 - strategy.SACRiskOptimizer - INFO - 初始化分布式进化SAC策略优化器...
+2025-11-22 15:40:33,671 - strategy.SACRiskOptimizer - INFO - SAC模型初始化完成
+2025-11-22 15:40:33,671 - evolutionary_optimizer - INFO - 进化种群初始化完成: 50 个体
+2025-11-22 15:40:33,671 - strategy.SACRiskOptimizer - INFO - 进化优化器初始化完成
+2025-11-22 15:40:33,671 - strategy.SACRiskOptimizer - INFO - 单机训练模式
+2025-11-22 15:40:33,671 - strategy.SACRiskOptimizer - INFO - SAC策略优化器初始化完成
+2025-11-22 15:40:33,671 - risk.quantum_risk_manager - INFO - SAC风险优化器初始化成功
+2025-11-22 15:40:33,671 - risk.quantum_risk_manager - INFO - 全局订单执行器加载成功: UnifiedOrderExecutor
+2025-11-22 15:40:33,671 - risk.quantum_risk_manager - INFO - 订单执行器状态: real_time
+2025-11-22 15:40:33,671 - risk.quantum_risk_manager - INFO - 紧急平仓系统初始化完成
+2025-11-22 15:40:33,671 - risk.quantum_risk_manager - INFO - 风险管理系统初始化完成: AI预测=True, 多层风控=True, 紧急平仓=True, 耗时: 0.117s
+2025-11-22 15:40:33,671 - risk.quantum_risk_manager - WARNING - 风险管理系统已经初始化
+2025-11-22 15:40:33,671 - quantum_sniper.system - INFO - 风险事件处理器设置完成
+2025-11-22 15:40:33,689 - quantum_sniper.system - WARNING - 风险监控启动失败
+2025-11-22 15:40:33,689 - quantum_sniper.system - INFO - ✅ 风险管理系统初始化完成
+2025-11-22 15:40:33,689 - quantum_sniper.system - INFO - ✅ 风险管理系统 完成
+2025-11-22 15:40:33,689 - quantum_sniper.system - INFO - 正在执行: 核心引擎
+2025-11-22 15:40:33,689 - engine.quantum_strategy_engine - INFO - 开始初始化量子策略引擎（整合版本）...
+2025-11-22 15:40:33,689 - engine.quantum_strategy_engine - INFO - 引擎状态变更: initializing -> initializing
+2025-11-22 15:40:33,689 - engine.quantum_strategy_engine - INFO - 事件系统已禁用（稳定性优先）
+2025-11-22 15:40:33,689 - engine.quantum_strategy_engine - ERROR - ❌ 策略加载异常 TrendStrategy: 策略错误: 未找到策略: TrendStrategy
+2025-11-22 15:40:33,689 - engine.quantum_strategy_engine - ERROR - ❌ 策略加载异常 MeanReversionStrategy: 策略错误: 未找到策略: MeanReversionStrategy
+2025-11-22 15:40:33,689 - engine.quantum_strategy_engine - ERROR - ❌ 策略加载异常 BreakoutStrategy: 策略错误: 未找到策略: BreakoutStrategy
+2025-11-22 15:40:33,689 - engine.quantum_strategy_engine - ERROR - ❌ 无策略成功加载
+2025-11-22 15:40:33,689 - engine.quantum_strategy_engine - ERROR - 策略引擎初始化失败: 策略错误: 策略加载和初始化失败 [策略: quantum_strategy_engine]
+2025-11-22 15:40:33,689 - engine.quantum_strategy_engine - INFO - 引擎状态变更: initializing -> error
+2025-11-22 15:40:33,689 - quantum_sniper.system - ERROR - 策略引擎初始化失败
+2025-11-22 15:40:33,689 - quantum_sniper.system - ERROR - ❌ 核心引擎 失败
+2025-11-22 15:40:33,689 - quantum_sniper.system - INFO - 系统状态变更: initializing -> error
+2025-11-22 15:40:33,689 - quantum_sniper.system - ERROR - 系统初始化失败: 4/8 步骤成功
+2025-11-22 15:40:33,689 - quantum_sniper.system - ERROR - 系统初始化失败，无法运行
+2025-11-22 15:42:15,895 - performance.quantum_sniper_monitor - WARNING - 性能告警触发: 组件 system CPU使用率过高 (严重程度: medium, 当前值: 81.2, 阈值: 70.0, 来源: performance_monitor)
+2025-11-22 15:43:26,013 - performance.quantum_sniper_monitor - WARNING - 性能告警触发: 组件 system CPU使用率过高 (严重程度: medium, 当前值: 78.1, 阈值: 70.0, 来源: performance_monitor)
+2025-11-22 15:46:01,984 - performance.quantum_sniper_monitor - WARNING - 性能告警触发: 组件 system CPU使用率过高 (严重程度: medium, 当前值: 70.5, 阈值: 70.0, 来源: performance_monitor)
+2025-11-22 15:47:41,558 - performance.quantum_sniper_monitor - WARNING - 性能告警触发: 组件 system CPU使用率过高 (严重程度: medium, 当前值: 74.4, 阈值: 70.0, 来源: performance_monitor)

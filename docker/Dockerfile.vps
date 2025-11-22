@@ -1,0 +1,42 @@
+[file name]: Dockerfile.vps
+[file content begin]
+FROM python:3.11-slim-bullseye
+
+LABEL maintainer="DeepSeek-V3.1 <quantum-sniper@system>"
+WORKDIR /app
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+ENV PYTHONPATH /app/src:/app/tests
+ENV ENVIRONMENT=production
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    g++ \
+    make \
+    libatlas-base-dev \
+    curl \
+    netcat-openbsd \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt .
+
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+RUN mkdir -p /app/data/{logs,cache,models,reports,historical,market_data}
+
+RUN chmod +x /app/docker/entrypoint.sh
+
+RUN useradd -m -r sniper && \
+    chown -R sniper /app
+USER sniper
+
+EXPOSE 8000 9090 8080
+
+ENTRYPOINT ["/app/docker/entrypoint.sh"]
+
+CMD ["python", "-c", "print('Quantum Sniper System environment is ready.')"]
+[file content end]

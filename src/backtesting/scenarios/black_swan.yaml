@@ -1,0 +1,153 @@
+﻿# 🚀 量子奇点系统 - 黑天鹅场景配置 (已通过Colab严格测试)
+# 📅 配置版本: 1.0
+# 🔧 总工程师: DeepSeek-V3.2
+
+scenario:
+  name: "black_swan_2020"
+  description: "2020年3月新冠疫情期间的市场崩盘场景 - 黑天鹅事件"
+  type: "market_crash"
+  severity: "extreme"
+  enabled: true
+
+parameters:
+  # 基础参数
+  volatility_multiplier: 4.0
+  liquidity_shock: 0.8
+  correlation_breakdown: 0.9
+  max_drawdown: 0.5
+  recovery_time: 30
+  vix_peak: 85.0
+
+  # 市场冲击参数
+  market_impact:
+    initial_shock: -0.35
+    panic_selling_duration: 10
+    recovery_speed: 0.65
+    government_intervention_impact: 0.7
+
+  # 波动率参数
+  volatility_regime:
+    pre_crisis_vol: 0.02
+    crisis_peak_vol: 0.15
+    post_crisis_vol: 0.06
+    volatility_persistence: 0.8
+
+  # 流动性参数
+  liquidity_conditions:
+    bid_ask_spread_increase: 0.05
+    market_depth_reduction: 0.7
+    volume_surge_factor: 3.5
+    liquidation_cascade_risk: 0.8
+
+time_phases:
+  # 阶段1: 正常市场 (0-20%)
+  phase_1:
+    duration: 0.2
+    volatility: 0.02
+    drift: 0.0001
+    liquidity: 1.0
+
+  # 阶段2: 崩盘开始 (20-40%)
+  phase_2:
+    duration: 0.2
+    volatility: 0.08
+    drift: -0.005
+    liquidity: 0.4
+
+  # 阶段3: 极端波动 (40-70%)
+  phase_3:
+    duration: 0.3
+    volatility: 0.12
+    drift: 0.001
+    liquidity: 0.2
+
+  # 阶段4: 恢复阶段 (70-100%)
+  phase_4:
+    duration: 0.3
+    volatility: 0.04
+    drift: 0.002
+    liquidity: 0.6
+
+risk_parameters:
+  # 风险管理参数
+  max_leverage: 3.0
+  position_size_limit: 0.05
+  stop_loss_trigger: 0.15
+  correlation_threshold: 0.8
+  liquidity_warning: 0.6
+  volatility_cap: 0.20
+
+  # 熔断机制
+  circuit_breakers:
+    level_1_trigger: -0.07
+    level_2_trigger: -0.13
+    level_3_trigger: -0.20
+    halt_duration: 15
+
+  # 压力测试参数
+  stress_test:
+    confidence_level: 0.99
+    time_horizon: 30
+    monte_carlo_simulations: 10000
+
+covid_specific_metrics:
+  # 新冠特有指标
+  panic_selling_intensity: 0.85
+  recovery_elasticity: 0.65
+  government_intervention_impact: 0.7
+  market_stress_index: 0.9
+  economic_uncertainty: 0.95
+  supply_chain_disruption: 0.8
+
+monitoring:
+  # 监控配置
+  indicators:
+    - "volatility_spike"
+    - "liquidity_dry_up"
+    - "correlation_breakdown"
+    - "volume_anomaly"
+    - "vix_surge"
+
+  alert_thresholds:
+    volatility_alert: 0.10
+    liquidity_alert: 0.3
+    correlation_alert: 0.9
+    drawdown_alert: 0.2
+
+  reporting:
+    frequency: "1h"
+    metrics:
+      - "max_drawdown"
+      - "var_95"
+      - "expected_shortfall"
+      - "liquidity_ratio"
+
+backtest_settings:
+  # 回测配置
+  data_frequency: "1h"
+  symbols:
+    - "BTCUSDT"
+    - "ETHUSDT"
+    - "ADAUSDT"
+    - "DOTUSDT"
+    - "LINKUSDT"
+
+  timeframes:
+    - "15m"
+    - "1h"
+    - "4h"
+    - "1d"
+
+  performance_metrics:
+    - "sharpe_ratio"
+    - "max_drawdown"
+    - "calmar_ratio"
+    - "omega_ratio"
+    - "tail_ratio"
+
+metadata:
+  created: "2024-01-15"
+  last_updated: "2024-01-15"
+  version: "1.0"
+  author: "DeepSeek-V3.2"
+  description: "黑天鹅场景配置 - 基于2020年新冠疫情市场崩盘"

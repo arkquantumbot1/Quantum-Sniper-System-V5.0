@@ -1,0 +1,89 @@
+# production.yaml (根目录)
+# 量子奇点狙击系统 - 生产环境配置
+
+system:
+  name: "QuantumSniper-Production"
+  environment: "production" 
+  version: "5.0.0"
+  log_level: "INFO"
+  enable_advanced_features: true
+  enable_quantum_optimization: true
+  risk_tolerance: "medium"
+  max_concurrent_operations: 20
+  health_check_interval: 10
+  performance_monitoring: true
+  auto_recovery: true
+
+trading:
+  enabled: true
+  symbols: 
+    - "BTCUSDT"
+    - "ETHUSDT" 
+    - "BNBUSDT"
+    - "ADAUSDT"
+    - "SOLUSDT"
+  base_currency: "USDT"
+  quote_currency: "BTC"
+  max_position_size: 0.15
+  default_leverage: 3
+
+order_executor:
+  enabled: true
+  execution_mode: "real_time"
+  enabled_exchanges:
+    - "binance"
+    - "okx" 
+    - "bybit"
+  max_retries: 5
+  timeout_seconds: 30
+  enable_cost_optimization: true
+
+risk_management:
+  enabled: true
+  enable_ai_prediction: true
+  real_time_monitoring: true
+  max_drawdown: 0.08
+  max_position_size: 0.1
+  enable_circuit_breaker: true
+  circuit_breaker_threshold: 0.12
+  emergency_liquidation_percent: 0.5
+
+performance_monitoring:
+  enabled: true
+  real_time_monitoring: true
+  collection_interval: 5
+  prediction_enabled: true
+  alert_severity: "high"
+  enable_trend_analysis: true
+
+strategy_engine:
+  execution_mode: "realtime"
+  enable_advanced_features: true
+  strategy_integration_mode: "weighted_average"
+  max_strategies: 10
+  enable_emergency_strategies: true
+
+quantum_optimization:
+  enabled: true
+  qnn_training_enabled: true
+  sac_optimization_enabled: true
+  distributed_training: false
+  model_update_interval: 3600
+
+monitoring:
+  prometheus_enabled: true
+  grafana_dashboard: true
+  telegram_alerts: true
+  health_check_enabled: true
+
+database:
+  type: "sqlite"
+  path: "data/sniper.db"
+  backup_interval: 3600
+
+logging:
+  level: "INFO"
+  file_enabled: true
+  file_path: "logs/quantum_sniper.log"
+  max_file_size: "100MB"
+  backup_count: 10

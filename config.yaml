@@ -1,0 +1,319 @@
+# 量子奇点狙击系统 - 主配置文件 V5.0
+# 🎯 极致优化版本：完全兼容重新开发的核心模块
+# ✅ 企业级配置，支持动态热重载和验证
+
+system:
+  name: "Quantum-Sniper-System-V5.0"
+  version: "5.0.0"
+  environment: "development"  # development, production, backtest, paper_trading
+  log_level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  enable_advanced_features: true
+  enable_quantum_optimization: false  # 默认关闭，需要显式开启
+  auto_recovery: true
+  health_check_interval: 30
+  max_concurrent_operations: 10
+  performance_monitoring: true
+  risk_tolerance: "medium"  # low, medium, high, extreme
+
+# ==================== 策略引擎配置 ====================
+strategy_engine:
+  name: "quantum_strategy_engine"
+  execution_mode: "realtime"  # realtime, backtest, paper_trading, simulation
+  max_concurrent_strategies: 10
+  signal_batch_size: 100
+  health_check_interval: 30
+  performance_monitoring: true
+  auto_recovery: true
+  enable_advanced_features: false  # 默认关闭高级功能
+  event_driven_architecture: false
+  strategy_timeout_seconds: 300
+  memory_usage_threshold_mb: 1024
+  cpu_usage_threshold_percent: 80
+  signal_validation_strict: true
+  adaptive_load_balancing: false
+  quantum_coherence_integration: false
+  
+  # 策略配置
+  strategies:
+    - name: "TrendStrategy"
+      type: "trend_following"
+      enabled: true
+      risk_level: "medium"
+      weight: 0.3
+      dependencies: ["MarketDataProcessor"]
+      
+    - name: "MeanReversionStrategy" 
+      type: "mean_reversion"
+      enabled: true
+      risk_level: "medium"
+      weight: 0.3
+      dependencies: ["MarketDataProcessor"]
+      
+    - name: "BreakoutStrategy"
+      type: "breakout"
+      enabled: true
+      risk_level: "high"
+      weight: 0.4
+      dependencies: ["MarketDataProcessor", "VolatilityAnalyzer"]
+
+# ==================== 整合引擎配置 ====================
+integration_engine:
+  name: "quantum_integration_engine"
+  integration_mode: "weighted_average"  # weighted_average, vote_based, ensemble_learning, adaptive_fusion, quantum_coherent
+  min_confidence_threshold: 0.6
+  max_strategies: 5
+  enabled: true
+  risk_level: "medium"
+  weight_update_method: "performance_based"  # performance_based, correlation_adjusted, market_regime_aware, reinforcement_learning, quantum_adaptive
+  consensus_threshold: 0.7
+  performance_lookback_period: 30
+  weight_decay_factor: 0.95
+  correlation_threshold: 0.8
+  dynamic_reweighting: true
+  quantum_coherence_enabled: false
+
+# ==================== 性能监控配置 ====================
+performance_monitoring:
+  enabled: true
+  metrics_collection_interval: 60
+  alert_enabled: true
+  performance_thresholds:
+    memory_usage_mb: 1024
+    cpu_usage_percent: 80
+    signal_latency_ms: 10
+    order_execution_ms: 50
+  cache_enabled: true
+  cache_size: 1000
+  max_workers: 10
+  parallel_processing: true
+
+# ==================== 风险管理配置 ====================
+risk_management:
+  enabled: true
+  max_drawdown: 0.1  # 10%
+  max_position_size: 10000.0
+  concentration_limit: 0.8  # 80%
+  stop_loss_enabled: true
+  take_profit_enabled: true
+  volatility_threshold: 0.15  # 15%
+  risk_level: "medium"  # low, medium, high, extreme
+  auto_adjust_risk_parameters: true
+  stress_testing_enabled: true
+  real_time_exposure_monitoring: true
+
+# ==================== 订单执行配置 ====================
+order_executor:
+  enabled: true
+  execution_mode: "simulation"  # simulation, paper_trading, production
+  default_exchange: "binance"
+  enabled_exchanges:
+    - "binance"
+    - "bybit" 
+    - "okx"
+    - "bingx"
+    - "bitget"
+    - "mexc"
+  fpga_enabled: false
+  large_order_threshold: 10000.0
+  
+  # 重试配置
+  retry_config:
+    max_retries: 3
+    retry_delay: 0.1
+    backoff_factor: 2.0
+  
+  # 执行优化
+  execution_optimization:
+    smart_order_routing: true
+    liquidity_analysis: true
+    cost_optimization: true
+    latency_optimization: true
+
+# ==================== 市场数据配置 ====================
+market_data:
+  real_time_enabled: true
+  update_interval: 1.0  # seconds
+  cache_size: 10000
+  history_days: 30
+  data_sources:
+    - "binance"
+    - "bybit"
+    - "okx"
+  data_quality_validation: true
+  auto_reconnect: true
+  compression_enabled: true
+
+# ==================== 交易配置 ====================
+trading:
+  enabled: true
+  symbols:
+    - "BTCUSDT"
+    - "ETHUSDT" 
+    - "BNBUSDT"
+  default_quantity: 0.01
+  min_quantity: 0.001
+  max_quantity: 10.0
+  leverage: 1
+  trading_hours: "24/7"  # 或指定交易时间
+  market_hours_validation: true
+
+# ==================== SAC策略优化器配置 ====================
+sac_strategy_optimizer:
+  enabled: true
+  name: "QuantumSACOptimizer"
+  risk_level: "medium"
+  performance_threshold: 0.8
+  learning_rate: 0.001
+  batch_size: 64
+  replay_buffer_size: 100000
+  target_update_interval: 100
+  max_generations: 2000
+  population_size: 100
+  elite_count: 10
+  crossover_rate: 0.85
+  mutation_rate: 0.15
+  convergence_tolerance: 0.01
+  early_stopping: true
+  parallel_training: true
+  use_gpu: true
+  max_memory_usage: 0.8
+  
+  # 量子增强功能
+  quantum_enhancement: true
+  quantum_entanglement: true
+  quantum_coherence_level: 0.8
+
+# ==================== 接口和模块配置 ====================
+interfaces:
+  validation_strict: true
+  version_control: true
+  backward_compatibility: true
+  auto_discovery: true
+  performance_monitoring: true
+
+modules:
+  auto_loading: true
+  dependency_validation: true
+  version_checking: true
+  hot_reloading: false  # 生产环境建议关闭
+
+# ==================== 缓存配置 ====================
+caching:
+  enabled: true
+  strategy_signals_ttl: 60  # seconds
+  market_data_ttl: 30
+  performance_metrics_ttl: 300
+  max_cache_size_mb: 1000
+
+# ==================== 日志配置 ====================
+logging:
+  level: "INFO"
+  file_enabled: true
+  file_path: "logs/quantum_sniper.log"
+  max_file_size_mb: 100
+  backup_count: 5
+  json_format: false
+  performance_logging: true
+
+# ==================== 网络和连接配置 ====================
+network:
+  timeout: 30
+  retry_attempts: 3
+  keep_alive: true
+  compression: true
+  proxy_enabled: false
+  # proxy_settings: ...
+
+# ==================== 高级量子功能配置 ====================
+quantum_features:
+  quantum_neural_lattice:
+    enabled: false
+    coherence_level: 0.9
+    entanglement_depth: 3
+    superposition_states: 8
+  
+  quantum_risk_management:
+    enabled: false
+    predictive_analysis: true
+    multi_universe_simulation: false
+  
+  quantum_execution:
+    enabled: false
+    parallel_universe_routing: false
+    temporal_optimization: false
+
+# ==================== 错误处理和恢复配置 ====================
+error_handling:
+  max_error_count: 100
+  auto_recovery_attempts: 3
+  recovery_timeout: 300
+  fallback_modes:
+    - "degraded_performance"
+    - "safe_mode"
+    - "emergency_shutdown"
+  alert_notifications: true
+
+# ==================== 监控和告警配置 ====================
+alerts:
+  enabled: true
+  notification_channels:
+    - "telegram"
+    - "email"
+    - "webhook"
+  
+  alert_rules:
+    performance_degradation:
+      threshold: 0.7
+      severity: "warning"
+    system_error:
+      threshold: 10
+      severity: "critical"
+    risk_exceeded:
+      threshold: 0.9
+      severity: "high"
+
+# ==================== 备份和持久化配置 ====================
+persistence:
+  enabled: true
+  auto_backup: true
+  backup_interval: 3600  # 1 hour
+  max_backup_files: 24
+  data_retention_days: 30
+
+# ==================== 开发调试配置 ====================
+development:
+  debug_mode: false
+  profiling_enabled: false
+  memory_profiling: false
+  performance_benchmarking: false
+  test_mode: false
+
+# ==================== 功能开关配置 ====================
+feature_flags:
+  enable_ai_driven_optimization: false
+  enable_quantum_computing: false
+  enable_predictive_analytics: false
+  enable_sentiment_analysis: false
+  enable_microstructure_analysis: false
+  enable_correlation_trading: false
+
+# ==================== 补充缺失字段 ====================  
+system:
+  name: "QuantumSniperV5.0"
+  environment: "development"
+  version: "5.0.0"
+  
+trading:
+  symbols: ["BTCUSDT", "ETHUSDT", "ADAUSDT"]
+  base_currency: "USDT"
+  quote_currency: "BTC"
+
+order_executor:
+  execution_mode: "simulation"
+  enabled_exchanges: ["binance", "okx"]
+  max_retries: 3
+
+risk_management:
+  max_drawdown: 0.1
+  max_position_size: 0.1
+  enable_circuit_breaker: true

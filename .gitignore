@@ -1,0 +1,21 @@
+# ???? 
+nul 
+NUL 
+*.log 
+*.tmp 
+*.temp 
+__pycache__/ 
+*.pyc 
+*.pyo 
+*.pyd 
+.Python 
+env/ 
+venv/ 
+.venv/ 
+.idea/ 
+.vscode/ 
+.DS_Store 
+Thumbs.db 
+ 
+# ??????? 
+quantum_sniper_*.log 

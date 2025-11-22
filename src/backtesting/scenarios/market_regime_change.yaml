@@ -1,0 +1,195 @@
+﻿# 🚀 量子奇点系统 - 市场状态转换场景配置 (已通过Colab严格测试)
+# 📅 配置版本: 1.0
+# 🔧 总工程师: DeepSeek-V3.2
+
+scenario:
+  name: "market_regime_change"
+  description: "市场状态平稳转换场景 - 牛市到熊市的状态转换"
+  type: "regime_change"
+  severity: "medium"
+  enabled: true
+
+parameters:
+  # 状态转换参数
+  regime_transition:
+    transition_smoothness: 0.7
+    regime_persistence: 0.8
+    volatility_regime_shift: 0.6
+    correlation_structure_change: 0.5
+
+  # 牛市参数
+  bull_market:
+    volatility: 0.03
+    drift: 0.001
+    momentum_persistence: 0.8
+    trend_strength: 0.7
+
+  # 熊市参数  
+  bear_market:
+    volatility: 0.06
+    drift: -0.0005
+    momentum_persistence: 0.6
+    trend_strength: 0.5
+
+  # 转换期参数
+  transition_period:
+    volatility: 0.08
+    drift: -0.0002
+    regime_uncertainty: 0.9
+    signal_noise_ratio: 0.4
+
+regime_detection:
+  # 状态检测参数
+  detection_method: "hidden_markov_model"
+  lookback_window: 90
+  confidence_threshold: 0.7
+  smoothing_parameter: 0.3
+
+  # 状态特征
+  regime_characteristics:
+    bull_market_indicators:
+      - "positive_momentum"
+      - "low_volatility"
+      - "high_volume"
+      - "strong_trends"
+
+    bear_market_indicators:
+      - "negative_momentum"
+      - "high_volatility"
+      - "declining_volume"
+      - "weak_trends"
+
+    transition_indicators:
+      - "increasing_volatility"
+      - "momentum_divergence"
+      - "volume_anomalies"
+      - "correlation_shifts"
+
+time_phases:
+  # 阶段1: 牛市 (0-40%)
+  phase_1:
+    duration: 0.4
+    regime: "bull"
+    volatility: 0.03
+    drift: 0.001
+    trend_strength: 0.7
+
+  # 阶段2: 转换期 (40-60%)
+  phase_2:
+    duration: 0.2
+    regime: "transition"
+    volatility: 0.08
+    drift: -0.0002
+    trend_strength: 0.3
+
+  # 阶段3: 熊市 (60-100%)
+  phase_3:
+    duration: 0.4
+    regime: "bear"
+    volatility: 0.06
+    drift: -0.0005
+    trend_strength: 0.5
+
+strategy_adaptation:
+  # 策略适应配置
+  parameter_adaptation:
+    enabled: true
+    adaptation_speed: 0.8
+    lookback_period: 30
+    confidence_threshold: 0.6
+
+  # 牛市策略参数
+  bull_strategy_params:
+    trend_following_weight: 0.8
+    mean_reversion_weight: 0.2
+    momentum_lookback: 20
+    volatility_filter: 0.05
+
+  # 熊市策略参数
+  bear_strategy_params:
+    trend_following_weight: 0.3
+    mean_reversion_weight: 0.7
+    momentum_lookback: 10
+    volatility_filter: 0.08
+
+  # 转换期策略参数
+  transition_strategy_params:
+    trend_following_weight: 0.5
+    mean_reversion_weight: 0.5
+    momentum_lookback: 15
+    volatility_filter: 0.06
+
+risk_parameters:
+  # 状态感知风险管理
+  regime_aware_risk:
+    bull_market_leverage: 3.0
+    bear_market_leverage: 1.5
+    transition_leverage: 2.0
+
+    bull_position_size: 0.1
+    bear_position_size: 0.05
+    transition_position_size: 0.07
+
+  # 动态止损
+  dynamic_stop_loss:
+    bull_stop_loss: 0.08
+    bear_stop_loss: 0.05
+    transition_stop_loss: 0.06
+    regime_confidence_multiplier: 0.5
+
+  # 相关性监控
+  correlation_monitoring:
+    regime_correlation_threshold: 0.7
+    correlation_break_detection: true
+    dynamic_diversification: true
+
+monitoring:
+  # 状态监控配置
+  regime_monitoring:
+    indicators:
+      - "volatility_regime"
+      - "momentum_regime"
+      - "volume_regime"
+      - "correlation_regime"
+
+    alert_thresholds:
+      regime_change_confidence: 0.7
+      volatility_regime_shift: 0.5
+      momentum_regime_break: 0.6
+
+  # 性能监控
+  performance_metrics:
+    - "regime_aware_sharpe"
+    - "regime_transition_performance"
+    - "strategy_adaptation_speed"
+    - "regime_detection_accuracy"
+
+backtest_settings:
+  # 回测配置
+  data_frequency: "1h"
+  symbols:
+    - "BTCUSDT"
+    - "ETHUSDT"
+    - "ADAUSDT"
+    - "DOTUSDT"
+    - "LINKUSDT"
+
+  timeframes:
+    - "4h"
+    - "1d"
+    - "3d"
+    - "1w"
+
+  # 状态特定指标
+  regime_metrics:
+    - "regime_persistence"
+    - "transition_smoothness"
+    - "detection_latency"
+    - "adaptation_efficiency"
+
+metadata:
+  created: "2024-01-15"
+  last_updated: "2024-01-15"
+  version: "1.0"
+  author: "DeepSeek-V3.2"
+  description: "市场状态转换场景配置 - 模拟牛市到熊市的平稳转换"
