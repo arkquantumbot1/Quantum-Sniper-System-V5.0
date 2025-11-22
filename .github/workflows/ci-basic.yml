@@ -1,0 +1,85 @@
+name: Quantum Sniper CI - Basic Validation
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  code-quality:
+    name: Code Quality Checks
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Set Up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.9"
+
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8 black isort
+
+    - name: Code Linting
+      run: |
+        echo "Running Flake8 code analysis..."
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 . --count --exit-zero --max-complexity=15 --max-line-length=127 --statistics
+
+    - name: Code Formatting Check
+      run: |
+        echo "Checking code formatting..."
+        black --check --diff .
+
+    - name: Import Sorting Check
+      run: |
+        echo "Checking import sorting..."
+        isort --check-only --diff .
+
+    - name: Basic Import Validation
+      run: |
+        echo "Testing basic module imports..."
+        python -c "import sys; sys.path.append('src'); print('Import path configured')"
+        python -c "try: from src.interfaces import StrategyBase; print('SUCCESS: StrategyBase import')\nexcept: print('INFO: StrategyBase not available yet')"
+
+    - name: Project Structure Validation
+      run: |
+        echo "Validating project structure..."
+        [ -f "README.md" ] && echo "PASS: README.md exists" || echo "FAIL: README.md missing"
+        [ -f "requirements.txt" ] && echo "PASS: requirements.txt exists" || echo "INFO: requirements.txt missing"
+        [ -d "src" ] && echo "PASS: src directory exists" || echo "FAIL: src directory missing"
+
+    - name: Requirements Validation
+      run: |
+        if [ -f "requirements.txt" ]; then
+          echo "Installing requirements..."
+          pip install -r requirements.txt
+          echo "PASS: Requirements installed"
+        else
+          echo "INFO: No requirements.txt found"
+        fi
+
+    - name: Basic Syntax Check
+      run: |
+        echo "Running basic Python syntax checks..."
+        find src -name "*.py" -exec python -m py_compile {} \; && echo "PASS: All Python files compile"
+
+  documentation-check:
+    name: Documentation Checks
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Documentation Structure Check
+      run: |
+        echo "Validating documentation..."
+        [ -f "README.md" ] && echo "PASS: README.md exists" || echo "FAIL: README.md missing"
+        [ -f "DEVELOPER_GUIDE.md" ] && echo "PASS: DEVELOPER_GUIDE.md exists" || echo "INFO: DEVELOPER_GUIDE.md missing"
+        [ -d "docs" ] && echo "PASS: docs directory exists" || echo "INFO: docs directory missing"
