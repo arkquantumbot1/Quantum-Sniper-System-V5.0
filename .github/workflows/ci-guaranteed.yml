@@ -1,0 +1,31 @@
+name: CI - Guaranteed Trigger
+
+on:
+  push:
+    branches: ['**']  # 所有分支
+  pull_request:
+    branches: ['**']  # 所有分支
+  workflow_dispatch:  # 手动触发
+
+jobs:
+  verify-trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Success message
+        run: |
+          echo "🎉 GitHub Actions 成功触发!"
+          echo "分支: ${{ github.ref }}"
+          echo "事件: ${{ github.event_name }}"
+          echo "提交: ${{ github.sha }}"
+          
+      - name: Project info
+        run: |
+          echo "📁 项目结构:"
+          ls -la
+          echo ""
+          echo "🐍 Python 信息:"
+          python --version
+          pip --version
