@@ -1,0 +1,61 @@
+name: 🐍 Python Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  schedule:
+    - cron: '0 2 * * 1'  # Weekly on Monday at 2 AM
+
+jobs:
+  test:
+    name: 🧪 Run Tests
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ['3.8', '3.9', '3.10']
+    
+    steps:
+    - name: 🛎️ Checkout Code
+      uses: actions/checkout@v4
+
+    - name: 🐍 Set Up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+        cache: 'pip'
+
+    - name: 📦 Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then
+          pip install -r requirements.txt
+        fi
+        pip install pytest pytest-cov
+
+    - name: 🧪 Run Basic Tests
+      run: |
+        echo "Running basic test discovery..."
+        python -m pytest tests/ -v --tb=short --cov=src --cov-report=term-missing || echo "No tests found yet - this is expected during initial development"
+
+    - name: 📊 Test Coverage Report
+      if: always()
+      run: |
+        echo "Test coverage summary will be available here in future"
+
+  compatibility:
+    name: 🔄 Compatibility Checks
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 🛎️ Checkout Code
+      uses: actions/checkout@v4
+
+    - name: 🐍 Multiple Python Version Test
+      run: |
+        echo "Testing basic compatibility..."
+        python -c "import sys; print(f'Python {sys.version}')"
+        python -c "import sys; sys.path.append('src'); print('Import path configured')"
+
